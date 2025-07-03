@@ -1,6 +1,5 @@
 import streamlit as st
 import requests
-import base64
 from pathlib import Path
 import os
 
@@ -11,18 +10,15 @@ headers = {
     "Content-Type": "application/json",
     "Authorization": f"Bearer {API_KEY}"
 }
+# 页面设置
+st.set_page_config(page_title="DeepSeekChat", layout="wide")
 
-def get_img_as_base64(file_path):
-    with open(file_path, "rb") as img_file:
-        return base64.b64encode(img_file.read()).decode('utf-8')
-
-img_path = "C:/code/python/shixun/firstweek/bg2.jpg"  
-img_base64 = get_img_as_base64(img_path)
+background_image_url = "https://raw.githubusercontent.com/Gypsophilap/desktop-tutorial/main/bg2.jpg"
 
 page_bg_img = f"""
 <style>
 [data-testid="stAppViewContainer"] {{
-    background-image: url("data:image/jpg;base64,{img_base64}");
+    background-image: url("{background_image_url}");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -30,9 +26,6 @@ page_bg_img = f"""
 }}
 </style>
 """
-# 页面设置
-st.set_page_config(page_title="DeepSeekChat", layout="wide")
-
 st.markdown(page_bg_img, unsafe_allow_html=True)
 
 def call_deepseek(messages):
