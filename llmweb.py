@@ -3,8 +3,8 @@ import requests
 from pathlib import Path
 import os
 
-API_KEY = "sk-2005a529a0684314bb0a16516d9e14f2"
-API_URL = "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions"
+API_KEY = "YourAPI"
+API_URL = "APIURL"
 
 headers = {
     "Content-Type": "application/json",
