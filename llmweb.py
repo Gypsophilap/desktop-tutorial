@@ -1,9 +1,8 @@
 import streamlit as st
 import requests
-from pathlib import Path
 import os
 
-API_KEY = "YourAPI"
+API_KEY = os.getenv("YourAPI")#or API_KEY ="YourAPI"
 API_URL = "APIURL"
 
 headers = {
